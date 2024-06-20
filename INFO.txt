@@ -1,0 +1,39 @@
+== HOW TO PLAY ONE-BUTTON-BADASS ==
+
+1. Goal of the game
+
+The goal of the game is to kill zombies, upgrade your stats, and survive as many waves as possible.
+
+2. Starting the game
+
+In order to start the game, you must input the controls for each player.
+Each player only needs one key to play.
+The game only accepts alphabetical keys between 'a' and 'z'.
+After you input the controls for each player, press enter without inputting anything to begin.
+
+3. Moving
+
+Each player character is always moving forward at a set speed, and there is no way to stop.
+Tap your key to turn your player character's direction 90 degrees clockwise.
+
+4. Shooting
+
+Each player character fires a bullet in the direction they are facing with a short cooldown.
+Bullets travel instantly, and can cut through multiple zombies.
+
+5. Upgrading
+
+Shooting zombies will reward players with money, which can be spent in-between waves in the shop.
+The following upgrades are available to purchase:
+
+LATEST RUNNING SHOES
+(upgrades movement speed)
+
+BULLET SHARPENERS
+(upgrades bullet damage)
+
+JITTERMAX MEGASPRESSO
+(upgrades firerate cooldown)
+
+STRAIGHT UP STEROIDS
+(upgrades health)
