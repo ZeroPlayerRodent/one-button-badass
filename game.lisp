@@ -8,9 +8,9 @@
 (load "badguys.lisp")
 (load "upgrades.lisp")
 
-; Round number and display list
-(defvar round 1)
-(defvar round-display (slice "1"))
+; wave number and display list
+(defvar wave 1)
+(defvar wave-display (slice "1"))
 
 ; Screen scale
 (defvar scale 1)
@@ -18,7 +18,7 @@
 ; Game outcome
 (defvar outcome "died")
 
-; Amount of extra zombies to spawn each round
+; Amount of extra zombies to spawn each wave
 (defvar extra-zombies 0)
 
 ; Score number and display list
@@ -34,7 +34,7 @@
   )
 )
 
-; Function that resets the game between rounds
+; Function that resets the game between waves
 (defun reset-game ()
   (setf speed-timer 150)
   (setf score-display (slice (write-to-string score)))
@@ -174,9 +174,9 @@
           (incf i)
         )
       )
-      ; Draw scoreboard and round number
+      ; Draw scoreboard and wave number
       (write-number 5 5 5 score-display scoreboard)
-      (write-number 550 5 5 round-display scoreboard)
+      (write-number 550 5 5 wave-display scoreboard)
       (xlib:display-finish-output display)
       ; Sleep so the game doesn't run too fast
       (sleep 0.02)
@@ -193,7 +193,7 @@
       (format t "YOU DIED")
       (terpri)
       (terpri)
-      (format t (concatenate 'string "WAVE " (write-to-string round)))
+      (format t (concatenate 'string "WAVE " (write-to-string wave)))
     )
     (xlib:destroy-window my-window)
     (xlib:close-display display)
@@ -207,6 +207,7 @@
   (format t "WELCOME TO ONE-BUTTON-BADASS!!!")
   (terpri)
   (format t "ENTER YOUR SCREEN SIZE, 'small' OR 'large': ")
+  (finish-output)
   (if (equal (read-line) "large")
     (setf scale 2)
     (setf scale 1)
@@ -220,6 +221,7 @@
   (let ((i 0)(controls (list 0))(input ""))
     (loop
       (format t (concatenate 'string "ENTER KEY FOR P" (write-to-string (+ i 1)) ": "))
+      (finish-output)
       (setf input (read-line))
       (when (equal input "")(return))
       (setf controls (concatenate 'list controls (list input)))
@@ -235,10 +237,10 @@
         ; Upgrade zombies
         (setf zh (+ zh 6))
         (setf zs (+ zs 1))
-        (when (equal (mod round 2) 0)(incf extra-zombies))
+        (when (equal (mod wave 2) 0)(incf extra-zombies))
         (buy-upgrades)
-        (incf round)
-        (setf round-display (slice (write-to-string round)))
+        (incf wave)
+        (setf wave-display (slice (write-to-string wave)))
       )
       (when (equal outcome "died")
         (return)
@@ -246,5 +248,3 @@
     )
   )
 )
-
-(main)
