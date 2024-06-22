@@ -10,8 +10,9 @@ Shoot zombies, upgrade your stats and survive.
 - Charmingly horrible Atari 2600-esque graphics
 - Endless hordes of undead corpses to battle
 
-## How to run
-1. Install [CLISP](https://clisp.sourceforge.io/) and the [CLX](https://packages.debian.org/stable/lisp/clisp-module-clx) module.
-2. Clone this repo and navigate to the directory containing `game.lisp`.
-3. Run the game by typing `clisp game.lisp` in the terminal.
-4. Have fun!!
+## How to build from source
+1. Install [SBCL](https://www.sbcl.org/) and the [CLX](https://packages.debian.org/stable/lisp/cl-clx-sbcl) library.
+2. Clone this repo and navigate to the directory containing `build.lisp`.
+3. Build the game by loading `build.lisp` in SBCL.
+4. Run the game by typing `./one-button-badass` in the terminal.
+5. Have fun!!
